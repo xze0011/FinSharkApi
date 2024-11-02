@@ -87,6 +87,8 @@ builder.Services.AddAuthentication(options =>
 });
 builder.Configuration["ConnectionStrings:DefaultConnection"] = Environment.GetEnvironmentVariable("DefaultConnection");
 builder.Configuration["JWT:SigningKey"] = Environment.GetEnvironmentVariable("SigningKey");
+Console.WriteLine($"Connection String: {builder.Configuration["ConnectionStrings:DefaultConnection"]}");
+Console.WriteLine($"JWT Signing Key: {builder.Configuration["JWT:SigningKey"]}");
 
 builder.Services.AddScoped<IStockRepository, StockRepository>();
 builder.Services.AddScoped<ICommentRepository, CommentRepository>();
